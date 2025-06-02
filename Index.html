@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Avitor Game - Login/Register</title>
+  <style>
+    body { background: #101820; color: #fff; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    .box { background: #1e2a38; padding: 30px; border-radius: 12px; width: 300px; text-align: center; }
+    input, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; font-size: 16px; }
+    button { background: #28a745; color: white; cursor: pointer; }
+    button:hover { background: #218838; }
+    h2 { margin-bottom: 10px; }
+    #toggleForm { color: #ccc; cursor: pointer; font-size: 14px; margin-top: 10px; }
+  </style>
+</head>
+<body><div class="box" id="registerBox">
+  <h2>Register</h2>
+  <input type="text" id="regUser" placeholder="Username">
+  <input type="password" id="regPass" placeholder="Password">
+  <button onclick="registerUser()">Register</button>
+  <div id="toggleForm" onclick="toggleForm('login')">Already have an account? Login</div>
+</div><div class="box" id="loginBox" style="display: none;">
+  <h2>Login</h2>
+  <input type="text" id="loginUser" placeholder="Username">
+  <input type="password" id="loginPass" placeholder="Password">
+  <button onclick="loginUser()">Login</button>
+  <p id="loginStatus"></p>
+  <div id="toggleForm" onclick="toggleForm('register')">Don't have an account? Register</div>
+</div><script>
+  function toggleForm(to) {
+    document.getElementById('registerBox').style.display = to === 'register' ? 'block' : 'none';
+    document.getElementById('loginBox').style.display = to === 'login' ? 'block' : 'none';
+  }
+
+  function getUser(username) {
+    return JSON.parse(localStorage.getItem(username));
+  }
+
+  function saveUser(user) {
+    localStorage.setItem(user.username, JSON.stringify(user));
+  }
+
+  function registerUser() {
+    const username = document.getElementById('regUser').value.trim();
+    const password = document.getElementById('regPass').value.trim();
+    if (!username || !password) return alert('Fill all fields.');
+    if (getUser(username)) return alert('Username already exists.');
+
+    const newUser = { username, password, balance: 0 };
+    saveUser(newUser);
+    alert('Registration successful! Please login.');
+    toggleForm('login');
+  }
+
+  function loginUser() {
+    const username = document.getElementById('loginUser').value.trim();
+    const password = document.getElementById('loginPass').value.trim();
+    const user = getUser(username);
+
+    if (!user || user.password !== password) {
+      document.getElementById('loginStatus').innerText = 'Invalid credentials!';
+      return;
+    }
+
+    localStorage.setItem('loggedInUser', username);
+    window.location.href = 'home.html';
+  }
+</script></body>
+</html>
