@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background-color: #0e0e0e;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding-bottom: 80px;
+    }
+    header {
+      padding: 20px;
+      font-size: 20px;
+      background: #1a1a1a;
+    }
+    .menu {
+      padding: 20px;
+    }
+    .menu button {
+      width: 100%;
+      background: #005eff;
+      color: white;
+      border: none;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      background-color: #121212;
+    }
+    .bottom-nav a {
+      flex: 1;
+      text-align: center;
+      padding: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+    .active {
+      background-color: #005eff;
+    }
+  </style>
+</head>
+<body>
+  <header>My Account</header>
+
+  <div class="menu">
+    <button>Wallet Balance: $0.00</button>
+    <button>Deposit</button>
+    <button>Withdraw</button>
+    <button>Settings</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="index.html">Home</a>
+    <a href="account.html" class="active">Account</a>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
