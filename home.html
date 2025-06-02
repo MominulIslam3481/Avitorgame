@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Game Lobby</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #0f172a;
+      color: #fff;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 15px;
+      text-align: center;
+    }
+    .username {
+      font-weight: bold;
+      color: #22d3ee;
+    }
+    .game-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    .game-button {
+      background-color: #334155;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #1e293b;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+    .navbar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Welcome, <span class="username" id="userName">User</span> 👋
+  </header>  <div class="game-grid">
+    <button class="game-button" onclick="window.location.href='avitor.html'">🎮 Avitor Game</button>
+    <button class="game-button" onclick="window.location.href='crush.html'">🧨 Crush Game</button>
+    <button class="game-button" onclick="window.location.href='livecasino.html'">🎲 Live Casino</button>
+  </div>  <div class="navbar">
+    <a href="#" onclick="goHome()">🏠 Home</a>
+    <a href="account.html">👤 Account</a>
+  </div>  <script>
+    // Assume username is saved in localStorage after login
+    const user = localStorage.getItem("username") || "Guest";
+    document.getElementById("userName").textContent = user;
+
+    function goHome() {
+      window.scrollTo(0, 0);
+    }
+  </script></body>
+</html>
