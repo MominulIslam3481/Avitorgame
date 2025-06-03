@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Account</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      flex: 1;
+      padding: 20px;
+      padding-bottom: 80px; /* space for bottom nav */
+    }
+
+    .header {
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .balance-box {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .balance-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .balance-info span {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .balance-info h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #00ffcc;
+    }
+
+    .deposit-btn {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .menu-buttons button {
+      background-color: #005eff;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      text-align: left;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .menu-buttons button:hover {
+      background-color: #0047cc;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      background-color: #121212;
+      z-index: 1000;
+    }
+
+    .bottom-nav a {
+      flex: 1;
+      text-align: center;
+      padding: 15px 0;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .bottom-nav .btn-success {
+      background-color: #1c1c1c;
+    }
+
+    .bottom-nav .btn-primary {
+      background-color: #005eff;
+    }
+
+    .bottom-nav i {
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">My Account</div>
+
+    <div class="balance-box">
+      <div class="balance-info">
+        <span>Wallet Balance</span>
+        <h2>$0.00</h2>
+      </div>
+      <button class="deposit-btn">Deposit</button>
+    </div>
+
+    <div class="menu-buttons">
+      <button>Withdraw</button>
+      <button>Change Password</button>
+      <button>Promotion</button>
+      <button>Gift</button>
+      <button>Settings</button>
+      <button>Customer Support</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="index.html" class="btn btn-success"><i class="fas fa-home"></i> Home</a>
+    <a href="account.html" class="btn btn-primary"><i class="fas fa-user"></i> Account</a>
+  </div>
+
+  <script>
+    function logout() {
+      // logout logic here (e.g., clear localStorage, etc.)
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
